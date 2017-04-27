@@ -10,6 +10,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACReturnSignal.h>
 #import <objc/runtime.h>
+#import "TestPhotoGroup.h"
+
 
 @interface ViewController ()
 
@@ -27,9 +29,8 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-   
-    //[self testTextField];
 }
 
 
@@ -124,7 +125,7 @@
 }
 
 - (IBAction)btnClick:(id)sender {
-  
+   [self.navigationController pushViewController:[TestPhotoGroup new] animated:YES];
 }
 
 

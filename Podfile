@@ -5,5 +5,7 @@ target 'FYXin_Project' do
      pod 'SDWebImage', '~>3.8'
      pod 'FDFullscreenPopGesture', '1.1'
      pod 'ReactiveCocoa', '~> 2.1.8'
-
+     pod 'MJRefresh'
+     pod 'INTULocationManager', '~> 4.2.0'
+     pod 'Masonry'
 end
