@@ -9,8 +9,9 @@
 #import "LoginViewController.h"
 #import "LoginView.h"
 #import "RegisterViewController.h"
+#import "AppDelegate.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<LoginViewDelegate>
 
 @end
 
@@ -34,6 +35,7 @@
     
     
     LoginView *loginView = [[LoginView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    loginView.delegate = self;
     [self.view addSubview:loginView];
     loginView.center = self.view.center;
     
@@ -59,28 +61,9 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [registerLabel addGestureRecognizer:tap];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
-        NSLog(@"runloop启动前");
-        CFRunLoopRun();
-        NSLog(@"runLoop启动后");
-    });
 }
 
-- (void)updateTimer {
-    
-    static int num = 0;
-    
-    NSLog(@"%d %@", num++, [NSThread currentThread]);
-    
-    // 满足条件后，停止当前的运行循环
-    if (num == 8) {
-        
-        // 一旦停止了运行循环，后续代码能够执行，执行完毕后，线程被自动销毁
-        CFRunLoopStop(CFRunLoopGetCurrent());
-    }
-}
+
 
 - (void)tap:(UITapGestureRecognizer *)tap {
     RegisterViewController *registerVC = [[RegisterViewController alloc] init];
@@ -88,5 +71,10 @@
 }
 
 
-
+#pragma mark - LoginViewDelegate 
+- (void)loginClickWith:(NSString *)userName pwd:(NSString *)password {
+    NSLog(@"UserName:%@  PassWord:%@",userName,password);
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [app changeRootVC];
+}
 @end

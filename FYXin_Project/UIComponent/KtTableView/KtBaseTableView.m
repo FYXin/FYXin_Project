@@ -89,15 +89,16 @@
     id<KtTableViewDataSource> dataSource = (id<KtTableViewDataSource>)tableView.dataSource;
     
     KtTableViewBaseItem *object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
-    Class cls = [dataSource tableView:tableView cellClassForObject:object];
+    Class cls = [dataSource tableView:tableView cellClassForObject:object indexPath:indexPath];
 
     if (object.cellHeight == CellInvalidHeight) { // 没有高度缓存
-        object.cellHeight = [cls tableView:tableView rowHeightForObject:object];
+        object.cellHeight = [cls tableView:tableView rowHeightForObject:object indexPath:indexPath];
     }
     return object.cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if ([self.ktDelegate respondsToSelector:@selector(didSelectObject:atIndexPath:)]) {
         id<KtTableViewDataSource> dataSource = (id<KtTableViewDataSource>)tableView.dataSource;
         id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];

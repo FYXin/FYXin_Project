@@ -32,4 +32,6 @@
  */
 + (UIViewController *)presentingVC;
 
++ (NSString *)convertToFromattime:(NSInteger)timeInteval;
+
 @end

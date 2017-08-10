@@ -14,6 +14,6 @@
 
 @property (nonatomic, retain) id object;
 
-+ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(KtTableViewBaseItem *)object;
++ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(KtTableViewBaseItem *)object indexPath:(NSIndexPath *)indexPath;
 
 @end

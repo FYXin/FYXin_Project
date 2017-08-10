@@ -17,6 +17,7 @@ PODS:
   - FDFullscreenPopGesture (1.1)
   - INTULocationManager (4.2.0)
   - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - ReactiveCocoa (2.1.8):
     - ReactiveCocoa/Core (= 2.1.8)
@@ -27,25 +28,30 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - UITableView+FDTemplateLayoutCell (1.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - FDFullscreenPopGesture (= 1.1)
   - INTULocationManager (~> 4.2.0)
   - Masonry
+  - MBProgressHUD
   - MJRefresh
   - ReactiveCocoa (~> 2.1.8)
   - SDWebImage (~> 3.8)
+  - UITableView+FDTemplateLayoutCell
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: 08edefbb1bb98a1bb18c9889e5af3e980ca064a6
+PODFILE CHECKSUM: 41943b9ded042ae53946e1319937906c8cb5b5e4
 
 COCOAPODS: 1.1.1

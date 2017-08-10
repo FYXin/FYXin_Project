@@ -119,7 +119,6 @@
     objc_setAssociatedObject(self, @selector(reloadBlock), reloadBlock, OBJC_ASSOCIATION_COPY);
 }
 
-
 @end
 
 

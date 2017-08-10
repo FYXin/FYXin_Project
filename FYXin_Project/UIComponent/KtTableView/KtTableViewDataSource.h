@@ -16,7 +16,7 @@
 @optional
 
 - (KtTableViewBaseItem *)tableView:(UITableView *)tableView objectForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (Class)tableView:(UITableView*)tableView cellClassForObject:(KtTableViewBaseItem *)object;
+- (Class)tableView:(UITableView*)tableView cellClassForObject:(KtTableViewBaseItem *)object indexPath:(NSIndexPath *)indexPath;
 
 @end
 

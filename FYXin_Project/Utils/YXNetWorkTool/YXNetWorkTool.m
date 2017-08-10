@@ -12,7 +12,7 @@
 #if __has_include(<AFNetworking/AFNetworking.h>)
     #import <AFNetworking/AFNetworking.h>
     #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
-#else
+#elif __has_include(AFNetworking.h)
     #import "AFNetworking.h"
     #import "AFNetworkActivityIndicatorManager.h"
 #endif
@@ -75,6 +75,9 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
     return yx_networkBaseUrl;
 }
 
++ (NSString *)yx_URLEncode:(NSString *)url {
+    return [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 
 + (NSString *)yx_absoluteUrlWithPath:(NSString *)path {
     if (path == nil || path.length == 0) {
@@ -111,11 +114,11 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
 }
 
 
-+ (NSString *)yx_URLEncode:(NSString *)url {
-
-    return [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-
-}
+//+ (NSString *)yx_URLEncode:(NSString *)url {
+//
+//    return [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//
+//}
 #pragma mark - 相关配置
 
 + (void)configCommonHttpHeaders:(NSDictionary *)httpHeaders {
@@ -278,7 +281,10 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self yx_absoluteUrlWithPath:URL]]];
     AFHTTPSessionManager *manager = [self manager];
-    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSURLSessionDownloadTask *downloadTask = nil;
+    [downloadTask resume];
+    
+    downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             progress ? progress(downloadProgress) : nil;
         });
@@ -301,8 +307,6 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
         success ? success(filePath,NO) : nil;
         [[self allSessionTask] removeObject:downloadTask];
     }];
-    
-    [downloadTask resume];
     
     downloadTask ? [[self allSessionTask] addObject:downloadTask] : nil;
     
@@ -386,9 +390,14 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sessionManager = [AFHTTPSessionManager manager];
+       
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
+    
         _sessionManager.requestSerializer.stringEncoding = NSUTF8StringEncoding;
         _sessionManager.requestSerializer.timeoutInterval = yx_timeout;
         _sessionManager.operationQueue.maxConcurrentOperationCount = 3;
+        
+         // 打开状态栏的等待菊花
          [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
         [self networkStatusChanged:nil];
     });
@@ -426,7 +435,6 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
         }
     }
     
-    
     for (NSString *key in yx_httpHeaders.allKeys) {
         if (yx_httpHeaders[key] != nil) {
             [_sessionManager.requestSerializer setValue:yx_httpHeaders[key] forHTTPHeaderField:key];
@@ -434,6 +442,19 @@ static YXNetworkStatus yx_networkStatus = YXNetworkStatusReachableViaWiFi;
     }
     
     return _sessionManager;
+}
+
++ (void)setSecurityPolicyWithCerPath:(NSString *)cerPath validatesDomainName:(BOOL)validatesDomainName {
+    NSData *cerData = [NSData dataWithContentsOfFile:cerPath];
+    // 使用证书验证模式
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+    // 如果需要验证自建证书(无效证书)，需要设置为YES
+    securityPolicy.allowInvalidCertificates = YES;
+    // 是否需要验证域名，默认为YES;
+    securityPolicy.validatesDomainName = validatesDomainName;
+    securityPolicy.pinnedCertificates = [[NSSet alloc] initWithObjects:cerData, nil];
+    
+    [_sessionManager setSecurityPolicy:securityPolicy];
 }
 
 @end

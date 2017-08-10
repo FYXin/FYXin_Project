@@ -26,7 +26,7 @@
     return nil;
 }
 
-- (Class)tableView:(UITableView*)tableView cellClassForObject:(KtTableViewBaseItem *)object {  // 这个方法会子类有机会重写，默认的 Cell 类型是 KtBaseTableViewCell
+- (Class)tableView:(UITableView*)tableView cellClassForObject:(KtTableViewBaseItem *)object indexPath:(NSIndexPath *)indexPath {  // 这个方法会子类有机会重写，默认的 Cell 类型是 KtBaseTableViewCell
     return [KtBaseTableViewCell class];
 }
 
@@ -50,7 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KtTableViewBaseItem *object = [self tableView:tableView objectForRowAtIndexPath:indexPath];
-    Class cellClass = [self tableView:tableView cellClassForObject:object];
+    Class cellClass = [self tableView:tableView cellClassForObject:object indexPath:indexPath];
     NSString *className = [NSString stringWithUTF8String:class_getName(cellClass)];
     
     KtBaseTableViewCell* cell = (KtBaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:className];

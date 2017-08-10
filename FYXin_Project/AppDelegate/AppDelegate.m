@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "YXTabBarController.h"
+#import "Define.h"
 
 @interface AppDelegate ()
 
@@ -16,12 +19,36 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+   
+ //   self.window.rootViewController = [[LoginViewController alloc] init];
+    [self changeRootVC];
     
+    [self.window makeKeyAndVisible];
     self.window.backgroundColor = [UIColor whiteColor];
+    
     
     return YES;
 }
 
+- (void)changeRootVC {
+    YXTabBarController *tabBarVC = [[YXTabBarController alloc] init];
+    self.window.rootViewController = tabBarVC;
+}
+
+- (void)say:(NSString *)code,... {
+    va_list args;
+    va_start(args, code);
+    NSLog(@"%@",code);
+    while (YES) {
+        NSString *string = va_arg(args, NSString *);
+        if (!string) {
+            break;
+        }
+        NSLog(@"%@",string);
+    }
+    va_end(args);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

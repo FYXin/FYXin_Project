@@ -18,26 +18,19 @@
 
 
 #define kScreenWidth  ([UIScreen mainScreen].bounds.size.width)
-#define KScreenHeight ([UIScreen mainScreen].bounds.size.height)
-
-
-#ifdef DEBUG
-#define YXLog(...) printf("[%s] %s [第%d行]: %s\n", __TIME__ ,__PRETTY_FUNCTION__ ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
-#else
-#define YXLog(...)
-#endif
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
 
 
 
 #if DEBUG
 
-#define NSLog(format, ...) do {                                             \
-fprintf(stderr, "<%s : %d> %s\n",                                           \
-[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
-__LINE__, __func__);                                                        \
-(NSLog)((format), ##__VA_ARGS__);                                           \
-fprintf(stderr, "-------\n");                                               \
-} while (0)
+    #define NSLog(format, ...) do {                                             \
+    fprintf(stderr, "<%s : %d> %s\n",                                           \
+    [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+    __LINE__, __func__);                                                        \
+    (NSLog)((format), ##__VA_ARGS__);                                           \
+    fprintf(stderr, "-------\n");                                               \
+    } while (0)
 
 
 

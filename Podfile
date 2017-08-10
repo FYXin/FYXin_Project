@@ -8,4 +8,6 @@ target 'FYXin_Project' do
      pod 'MJRefresh'
      pod 'INTULocationManager', '~> 4.2.0'
      pod 'Masonry'
+     pod 'UITableView+FDTemplateLayoutCell'
+     pod 'MBProgressHUD'
 end

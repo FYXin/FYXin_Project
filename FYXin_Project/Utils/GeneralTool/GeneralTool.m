@@ -110,4 +110,17 @@
     return result;
 }
 
++ (NSString *)convertToFromattime:(NSInteger)timeInteval {
+    static NSDateFormatter *formate;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formate = [[NSDateFormatter alloc] init];
+        [formate setDateFormat:@"yyyy hh:MM"];
+    });
+    
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:(NSTimeInterval)timeInteval];
+    return [formate stringFromDate:date];
+    
+}
+
 @end
