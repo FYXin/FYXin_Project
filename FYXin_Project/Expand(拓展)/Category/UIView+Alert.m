@@ -9,7 +9,7 @@
 #import <objc/runtime.h>
 
 #import "UIView+Alert.h"
-#import "UIView+Toast.h"
+#import <UIView+Toast.h>
 #import "MBProgressHUD.h"
 
 @implementation UIView (Alert)

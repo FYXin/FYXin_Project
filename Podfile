@@ -10,4 +10,6 @@ target 'FYXin_Project' do
      pod 'Masonry'
      pod 'UITableView+FDTemplateLayoutCell'
      pod 'MBProgressHUD'
+     # Toast
+     pod 'Toast'                             , '4.0.0'
 end

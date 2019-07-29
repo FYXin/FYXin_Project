@@ -28,7 +28,8 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - UITableView+FDTemplateLayoutCell (1.6)
+  - Toast (4.0.0)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -39,7 +40,21 @@ DEPENDENCIES:
   - MJRefresh
   - ReactiveCocoa (~> 2.1.8)
   - SDWebImage (~> 3.8)
-  - UITableView+FDTemplateLayoutCell
+  - Toast (= 4.0.0)
+  - "UITableView+FDTemplateLayoutCell"
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - FDFullscreenPopGesture
+    - INTULocationManager
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - ReactiveCocoa
+    - SDWebImage
+    - Toast
+    - "UITableView+FDTemplateLayoutCell"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -50,8 +65,9 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: 41943b9ded042ae53946e1319937906c8cb5b5e4
+PODFILE CHECKSUM: 15979bc913c5e0c82361aec06a36b676b21c95b1
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.0

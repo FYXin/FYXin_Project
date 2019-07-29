@@ -7,21 +7,22 @@
 //
 
 #import "AppDelegate+AppService.h"
+#import "Main"
 
 @implementation AppDelegate (AppService)
 
 
 
 #pragma mark - ——————— 初始化window ————————
--(void)initWindow{
+-(void)initWindow {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = KWhiteColor;
+   
     self.mainTabBar = [MainTabBarController new];
     self.window.rootViewController = self.mainTabBar;
     [self.window makeKeyAndVisible];
     
     [[UIButton appearance] setExclusiveTouch:YES];
-    [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = KWhiteColor;
+   
 }
 
 

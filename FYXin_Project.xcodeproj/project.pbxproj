@@ -64,7 +64,6 @@
 		8E78D8A01ED6DAA1009FEBA6 /* DepartMentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D89F1ED6DAA1009FEBA6 /* DepartMentView.m */; };
 		8E78D8A31ED6DEA2009FEBA6 /* TimeLimitedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D8A21ED6DEA2009FEBA6 /* TimeLimitedView.m */; };
 		8E78D8A71ED6E14A009FEBA6 /* CCDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D8A61ED6E14A009FEBA6 /* CCDatePickerView.m */; };
-		8E791A261F3BFC5B00A4C33A /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E791A251F3BFC5B00A4C33A /* AppDelegate+AppService.m */; };
 		8E791A291F3BFC8000A4C33A /* MBProgressHUD+YX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E791A281F3BFC8000A4C33A /* MBProgressHUD+YX.m */; };
 		8EA383141EB87D8200BA2837 /* UIImage+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA383131EB87D8200BA2837 /* UIImage+YYAdd.m */; };
 		8EDF37261E5AC9F100156B6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDF37251E5AC9F100156B6C /* main.m */; };
@@ -199,12 +198,11 @@
 		8E78D8A21ED6DEA2009FEBA6 /* TimeLimitedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLimitedView.m; sourceTree = "<group>"; };
 		8E78D8A51ED6E14A009FEBA6 /* CCDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatePickerView.h; sourceTree = "<group>"; };
 		8E78D8A61ED6E14A009FEBA6 /* CCDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatePickerView.m; sourceTree = "<group>"; };
-		8E791A241F3BFC5B00A4C33A /* AppDelegate+AppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+AppService.h"; sourceTree = "<group>"; };
-		8E791A251F3BFC5B00A4C33A /* AppDelegate+AppService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+AppService.m"; sourceTree = "<group>"; };
 		8E791A271F3BFC8000A4C33A /* MBProgressHUD+YX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YX.h"; sourceTree = "<group>"; };
 		8E791A281F3BFC8000A4C33A /* MBProgressHUD+YX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YX.m"; sourceTree = "<group>"; };
 		8EA383121EB87D8200BA2837 /* UIImage+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YYAdd.h"; sourceTree = "<group>"; };
 		8EA383131EB87D8200BA2837 /* UIImage+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YYAdd.m"; sourceTree = "<group>"; };
+		8EC61E0C22EA893000FAB4C6 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		8EDF37211E5AC9F100156B6C /* FYXin_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYXin_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDF37251E5AC9F100156B6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8EDF37301E5AC9F100156B6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -480,8 +478,6 @@
 			children = (
 				8E791A271F3BFC8000A4C33A /* MBProgressHUD+YX.h */,
 				8E791A281F3BFC8000A4C33A /* MBProgressHUD+YX.m */,
-				8E791A241F3BFC5B00A4C33A /* AppDelegate+AppService.h */,
-				8E791A251F3BFC5B00A4C33A /* AppDelegate+AppService.m */,
 				8E0F1C021F0103790065AC07 /* UIResponder+Router.h */,
 				8E0F1C031F0103790065AC07 /* UIResponder+Router.m */,
 				8E0F1C041F0103790065AC07 /* UIView+Alert.h */,
@@ -631,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDF37551E5AE7AD00156B6C /* Define.h */,
+				8EC61E0C22EA893000FAB4C6 /* Macros.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -672,7 +669,6 @@
 				8EDF371D1E5AC9F100156B6C /* Sources */,
 				8EDF371E1E5AC9F100156B6C /* Frameworks */,
 				8EDF371F1E5AC9F100156B6C /* Resources */,
-				76D7B03C01CF5DE3764F759E /* [CP] Embed Pods Frameworks */,
 				CE70486357AA6F8166202853 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -730,6 +726,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -771,30 +768,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		76D7B03C01CF5DE3764F759E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FYXin_Project/Pods-FYXin_Project-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CE70486357AA6F8166202853 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FYXin_Project/Pods-FYXin_Project-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -807,13 +792,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FYXin_Project-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -874,7 +862,6 @@
 				8E78D8901ED591CF009FEBA6 /* ViewController.m in Sources */,
 				8E398A861E98E55E00CFB569 /* CALayer+YYAdd.m in Sources */,
 				8E70B7B71EF9FB4300F08F96 /* FPagesViewController.m in Sources */,
-				8E791A261F3BFC5B00A4C33A /* AppDelegate+AppService.m in Sources */,
 				8E78D89A1ED5AF31009FEBA6 /* DLRadioButton.m in Sources */,
 				8E00EB121EBAC7A40031AD2D /* HomeTableViewCell.m in Sources */,
 				8E71DBC61EB9BC6500CB66A1 /* MessageViewController.m in Sources */,
@@ -1014,7 +1001,7 @@
 					"$(PROJECT_DIR)/FYXin_Project/Utils/QExtension/UIView+QExtension",
 				);
 				INFOPLIST_FILE = FYXin_Project/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FYXin.FYXin-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1032,7 +1019,7 @@
 					"$(PROJECT_DIR)/FYXin_Project/Utils/QExtension/UIView+QExtension",
 				);
 				INFOPLIST_FILE = FYXin_Project/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FYXin.FYXin-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
